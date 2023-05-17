@@ -1,0 +1,13 @@
+<div class="hotel-preview">
+  <div class="hotel-image">
+    <img [src]="priceOffer?.hotel?.info?.mainImage" (error)="addImagePlaceholder(priceOffer)" alt="Hotel Image" />
+  </div>
+  <div class="hotel-details">
+    <div class="hotel-name">{{ priceOffer?.hotel?.info?.name }}</div>
+    <div class="hotel-rating">
+      <img class='star-image ' *ngFor="let star of getStars()" src="https://upload.wikimedia.org/wikipedia/donate/thumb/4/44/YellowStar.svg/1200px-YellowStar.svg.png" alt="Star" />
+    </div>
+    <div class="hotel-location">{{ priceOffer?.hotel?.info?.name }}</div>
+    <div class="hotel-price"><span>{{ priceOffer.priceInfo?.amountAfterTax | currency }}</span></div>
+  </div>
+</div>

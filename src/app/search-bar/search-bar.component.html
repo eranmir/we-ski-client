@@ -1,0 +1,26 @@
+<div class="search-bar">
+  <div class="company-logo">
+    <img [src]="companyLogoSrc" alt="Company Logo" />
+  </div>
+  <div class="search-fields">
+    <select [(ngModel)]="selectedDestination">
+      <option value="">Select Destination</option>
+      <option *ngFor="let destination of destinations" [value]="destination.id">{{ destination.name }}</option>
+    </select>
+    <select [(ngModel)]="groupSize">
+      <option value="">Group Size</option>
+      <option *ngFor="let size of groupSizeOptions" [value]="size">{{ size }}</option>
+    </select>
+    <mat-form-field class="datepickers">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date" [(ngModel)]="selectedFromDate">
+        <input matEndDate placeholder="End date" [(ngModel)]="selectedToDate">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <button (click)="search()">Search</button>
+  </div>
+</div>
